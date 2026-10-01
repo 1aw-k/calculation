@@ -60,6 +60,7 @@ Thumbs.db
 *vcxproj.*
 
 # Qt Creator shadow builds
+/build/
 /build-*/
 .qtc_clangd/
 debug/

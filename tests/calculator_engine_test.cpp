@@ -144,5 +144,3 @@ void CalculatorEngineTest::leadingNegativeNumber()
 }
 
 QTEST_APPLESS_MAIN(CalculatorEngineTest)
-
-#include "calculator_engine_test.moc"
