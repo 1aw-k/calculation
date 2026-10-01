@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-     <width>380</width>
-     <height>580</height>
+     <width>400</width>
+     <height>620</height>
     </rect>
    </property>
    <property name="minimumSize">
     <size>
-     <width>360</width>
-     <height>520</height>
+     <width>380</width>
+     <height>560</height>
     </size>
    </property>
    <property name="windowTitle">
@@ -21,91 +21,92 @@
    </property>
    <property name="styleSheet">
     <string>QMainWindow {
-    background-color: #f3f3f3;
+    background-color: #1f1f1f;
 }
 QWidget#centralwidget {
-    background-color: #f3f3f3;
+    background-color: #1f1f1f;
 }
 QLabel#expressionLabel {
-    color: #5f6368;
-    font-size: 14px;
-    padding: 0px 6px 0px 6px;
+    color: #bdbdbd;
+    font-size: 15px;
+    padding: 0px 8px 0px 8px;
 }
 QLineEdit#displayLineEdit {
-    min-height: 74px;
-    background-color: #ffffff;
-    color: #202124;
-    border: 1px solid #c8c6c4;
-    border-radius: 6px;
-    padding: 6px 14px 6px 14px;
-    font-size: 32px;
-    font-weight: 500;
+    min-height: 86px;
+    background-color: #292929;
+    color: #ffffff;
+    border: 2px solid #3b3b3b;
+    border-radius: 8px;
+    padding: 10px 16px 10px 16px;
+    font-size: 36px;
+    font-weight: 600;
 }
 QLineEdit#displayLineEdit[error="true"] {
-    color: #b3261e;
-    border: 1px solid #b3261e;
+    color: #ffb4ab;
+    border: 2px solid #ffb4ab;
 }
 QPushButton {
-    min-width: 62px;
-    min-height: 52px;
-    border: 1px solid #d0d0d0;
-    border-radius: 6px;
-    background-color: #ffffff;
-    color: #202124;
-    font-size: 19px;
-}
-QPushButton:hover {
-    background-color: #f7f7f7;
-}
-QPushButton:pressed {
-    background-color: #e8e8e8;
-}
-QPushButton[role="digit"] {
-    font-size: 21px;
+    min-width: 64px;
+    min-height: 56px;
+    border: none;
+    border-radius: 8px;
+    background-color: #383838;
+    color: #ffffff;
+    font-size: 22px;
     font-weight: 500;
 }
+QPushButton:hover {
+    background-color: #454545;
+}
+QPushButton:pressed {
+    background-color: #505050;
+}
+QPushButton[role="digit"] {
+    background-color: #3b3b3b;
+    font-size: 23px;
+}
 QPushButton[role="operator"] {
-    background-color: #ededed;
-    font-size: 22px;
-}
-QPushButton[role="operator"]:hover {
-    background-color: #e4e4e4;
-}
-QPushButton[role="action"] {
-    background-color: #e5e5e5;
-    font-size: 17px;
-}
-QPushButton[role="equals"] {
-    background-color: #0067c0;
-    border-color: #0067c0;
-    color: #ffffff;
+    background-color: #2f2f2f;
+    color: #75d0ff;
     font-size: 24px;
 }
+QPushButton[role="operator"]:hover {
+    background-color: #3b3b3b;
+}
+QPushButton[role="action"] {
+    background-color: #2b2b2b;
+    color: #d8d8d8;
+    font-size: 18px;
+}
+QPushButton[role="equals"] {
+    background-color: #0f6cbd;
+    border: 2px solid #75d0ff;
+    color: #ffffff;
+    font-size: 28px;
+}
 QPushButton[role="equals"]:hover {
-    background-color: #005a9e;
-    border-color: #005a9e;
+    background-color: #0d5fa6;
 }
 QPushButton[role="equals"]:pressed {
-    background-color: #004578;
-    border-color: #004578;
+    background-color: #0b4f8a;
 }</string>
    </property>
    <widget class="QWidget" name="centralwidget">
     <layout class="QVBoxLayout" name="mainVerticalLayout">
      <property name="spacing">
-      <number>12</number>
+      <number>16</number>
      </property>
      <property name="leftMargin">
-      <number>16</number>
+      <number>20</number>
      </property>
      <property name="topMargin">
-      <number>16</number>
+      <number>20</number>
      </property>
      <property name="rightMargin">
-      <number>16</number>
+      <number>20</number>
      </property>
      <property name="bottomMargin">
-      <number>16</number>
+      <number>20</number>
      </property>
      <item>
       <widget class="QLabel" name="expressionLabel">
@@ -148,10 +149,10 @@ QPushButton[role="equals"]:pressed {
      <item>
       <layout class="QGridLayout" name="keypadGridLayout">
        <property name="horizontalSpacing">
-        <number>8</number>
+        <number>10</number>
        </property>
        <property name="verticalSpacing">
-        <number>8</number>
+        <number>10</number>
        </property>
        <item row="0" column="0">
         <widget class="QPushButton" name="clearButton">
