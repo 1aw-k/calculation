@@ -3,6 +3,10 @@
 
 #include <QMainWindow>
 
+#include "calculator_engine.h"
+
+class QKeyEvent;
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -15,7 +19,15 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+protected:
+    void keyPressEvent(QKeyEvent *event) override;
+
 private:
+    void setupInputBindings();
+    void processInput(const QString &input);
+    void refreshDisplay();
+
     Ui::MainWindow *ui;
+    CalculatorEngine m_calculator;
 };
 #endif // MAINWINDOW_H
