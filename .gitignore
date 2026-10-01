@@ -59,6 +59,12 @@ Thumbs.db
 *.vcxproj
 *vcxproj.*
 
+# Qt Creator shadow builds
+/build-*/
+.qtc_clangd/
+debug/
+release/
+
 # MinGW generated files
 *.Debug
 *.Release
