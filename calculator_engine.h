@@ -39,14 +39,14 @@ private:
 
     QString m_displayText;
     QString m_expressionText;
-    QString m_pendingOperator;
-    QString m_lastOperator;
+    QString m_pendingOperator; // Current binary operator, empty when none.
+    QString m_lastOperator;    // Used by repeated equals.
 
     double m_accumulator;
     double m_lastOperand;
-    bool m_startNewOperand;
-    bool m_justEvaluated;
-    bool m_hasError;
+    bool m_startNewOperand; // Next digit starts a fresh operand.
+    bool m_justEvaluated;   // Enables repeated equals and result continuation.
+    bool m_hasError;        // Blocks invalid operations until clear/new input.
 };
 
 #endif // CALCULATORENGINE_H
