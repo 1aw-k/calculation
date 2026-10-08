@@ -11,6 +11,7 @@ class CalculatorUiInputTest : public QObject
 private slots:
     void keyboardAndMouseProduceSameResult();
     void keyboardAndMouseHandleBackspaceAndClear();
+    void memoryShortcutsAndButtonsStayConsistent();
 };
 
 #endif // CALCULATORUIINPUTTEST_H

@@ -84,4 +84,27 @@ void CalculatorUiInputTest::keyboardAndMouseHandleBackspaceAndClear()
     QCOMPARE(displayText(&mouseWindow), displayText(&keyboardWindow));
 }
 
+void CalculatorUiInputTest::memoryShortcutsAndButtonsStayConsistent()
+{
+    MainWindow keyboardWindow;
+    keyboardWindow.show();
+    QCoreApplication::processEvents();
+
+    QTest::keyClicks(&keyboardWindow, QStringLiteral("5"));
+    QTest::keyClick(&keyboardWindow, Qt::Key_P, Qt::ControlModifier);
+    QTest::keyClick(&keyboardWindow, Qt::Key_R, Qt::ControlModifier);
+
+    MainWindow mouseWindow;
+    mouseWindow.show();
+    QCoreApplication::processEvents();
+
+    clickButton(&mouseWindow, QStringLiteral("fiveButton"));
+    clickButton(&mouseWindow, QStringLiteral("memoryAddButton"));
+    clickButton(&mouseWindow, QStringLiteral("memoryRecallButton"));
+
+    QCOMPARE(displayText(&keyboardWindow), QStringLiteral("5"));
+    QCOMPARE(displayText(&mouseWindow), QStringLiteral("5"));
+    QCOMPARE(displayText(&mouseWindow), displayText(&keyboardWindow));
+}
+
 QTEST_MAIN(CalculatorUiInputTest)

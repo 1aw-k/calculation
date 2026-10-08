@@ -143,4 +143,37 @@ void CalculatorEngineTest::leadingNegativeNumber()
     QCOMPARE(m_engine.expressionText(), QStringLiteral("-2 × 3 ="));
 }
 
+void CalculatorEngineTest::memoryOperations()
+{
+    QStringList inputs;
+    inputs << "7" << "M+" << "MR";
+    QCOMPARE(runInputs(inputs), QStringLiteral("7"));
+
+    m_engine.clear();
+    inputs.clear();
+    inputs << "3" << "M-" << "MR";
+    QCOMPARE(runInputs(inputs), QStringLiteral("-3"));
+
+    m_engine.process(QStringLiteral("MC"));
+    m_engine.process(QStringLiteral("MR"));
+    QCOMPARE(m_engine.displayText(), QStringLiteral("0"));
+}
+
+void CalculatorEngineTest::percentageOperations()
+{
+    QStringList inputs;
+    inputs << "5" << "0" << "%";
+    QCOMPARE(runInputs(inputs), QStringLiteral("0.5"));
+
+    m_engine.clear();
+    inputs.clear();
+    inputs << "2" << "0" << "0" << "+" << "1" << "0" << "%" << "=";
+    QCOMPARE(runInputs(inputs), QStringLiteral("220"));
+
+    m_engine.clear();
+    inputs.clear();
+    inputs << "1" << "0" << "0" << "/" << "5" << "0" << "%" << "=";
+    QCOMPARE(runInputs(inputs), QStringLiteral("200"));
+}
+
 QTEST_APPLESS_MAIN(CalculatorEngineTest)

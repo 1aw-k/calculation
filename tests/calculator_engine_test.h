@@ -21,6 +21,8 @@ private slots:
     void continueAfterResult();
     void repeatedEquals();
     void leadingNegativeNumber();
+    void memoryOperations();
+    void percentageOperations();
 
 private:
     QString runInputs(const QStringList &inputs);
