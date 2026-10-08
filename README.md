@@ -72,8 +72,8 @@ mingw32-make
 使用 Qt 5.12.11 MinGW 7.3.0 64-bit 完成验证：
 
 - 主程序 `Lab1.exe` 在启用 `-Wall -Wextra` 时编译成功。
-- 计算引擎 Qt Test 共执行 12 个测试项，结果为
-  `12 passed, 0 failed, 0 skipped`。
+- 计算引擎 Qt Test 共执行 13 个测试项，结果为
+  `13 passed, 0 failed, 0 skipped`。
 - 鼠标与键盘界面测试共执行 5 个测试项，结果为
   `5 passed, 0 failed, 0 skipped`。
 - 测试过程中发现并修复了测试类位于头文件时 qmake 已生成

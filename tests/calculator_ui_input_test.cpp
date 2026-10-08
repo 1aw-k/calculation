@@ -92,6 +92,7 @@ void CalculatorUiInputTest::memoryShortcutsAndButtonsStayConsistent()
 
     QTest::keyClicks(&keyboardWindow, QStringLiteral("5"));
     QTest::keyClick(&keyboardWindow, Qt::Key_P, Qt::ControlModifier);
+    QTest::keyClick(&keyboardWindow, Qt::Key_Escape);
     QTest::keyClick(&keyboardWindow, Qt::Key_R, Qt::ControlModifier);
 
     MainWindow mouseWindow;
@@ -100,6 +101,7 @@ void CalculatorUiInputTest::memoryShortcutsAndButtonsStayConsistent()
 
     clickButton(&mouseWindow, QStringLiteral("fiveButton"));
     clickButton(&mouseWindow, QStringLiteral("memoryAddButton"));
+    clickButton(&mouseWindow, QStringLiteral("clearButton"));
     clickButton(&mouseWindow, QStringLiteral("memoryRecallButton"));
 
     QCOMPARE(displayText(&keyboardWindow), QStringLiteral("5"));

@@ -3,6 +3,8 @@
 #include <QtGlobal>
 
 CalculatorEngine::CalculatorEngine()
+    : m_memoryValue(0.0)
+    , m_memorySet(false)
 {
     clear();
 }
@@ -82,11 +84,9 @@ void CalculatorEngine::clear()
 
     m_accumulator = 0.0;
     m_lastOperand = 0.0;
-    m_memoryValue = 0.0;
     m_startNewOperand = true;
     m_justEvaluated = false;
     m_hasError = false;
-    m_memorySet = false;
 }
 
 bool CalculatorEngine::isOperator(const QString &input)

@@ -22,6 +22,7 @@ private slots:
     void repeatedEquals();
     void leadingNegativeNumber();
     void memoryOperations();
+    void clearPreservesMemory();
     void percentageOperations();
 
 private:
