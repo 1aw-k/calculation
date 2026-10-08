@@ -62,6 +62,7 @@ Thumbs.db
 # Qt Creator shadow builds
 /build/
 /build-*/
+.qtcreator-clean/
 .qtc_clangd/
 debug/
 release/
