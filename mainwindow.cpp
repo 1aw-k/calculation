@@ -24,7 +24,33 @@ MainWindow::~MainWindow()
 
 void MainWindow::keyPressEvent(QKeyEvent *event)
 {
-    if (event->modifiers() & (Qt::ControlModifier | Qt::AltModifier)) {
+    if (event->modifiers() & Qt::ControlModifier) {
+        switch (event->key()) {
+        case Qt::Key_L:
+            processInput(QStringLiteral("MC"));
+            event->accept();
+            return;
+        case Qt::Key_P:
+            processInput(QStringLiteral("M+"));
+            event->accept();
+            return;
+        case Qt::Key_M:
+            processInput(QStringLiteral("M-"));
+            event->accept();
+            return;
+        case Qt::Key_R:
+            processInput(QStringLiteral("MR"));
+            event->accept();
+            return;
+        default:
+            break;
+        }
+
+        QMainWindow::keyPressEvent(event);
+        return;
+    }
+
+    if (event->modifiers() & Qt::AltModifier) {
         QMainWindow::keyPressEvent(event);
         return;
     }
@@ -58,6 +84,9 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
         break;
     case Qt::Key_Slash:
         input = QStringLiteral("/");
+        break;
+    case Qt::Key_Percent:
+        input = QStringLiteral("%");
         break;
     case Qt::Key_Return:
     case Qt::Key_Enter:
