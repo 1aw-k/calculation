@@ -18,6 +18,14 @@ QString CalculatorEngine::process(const QString &input)
         return m_displayText;
     }
 
+    if (input == QStringLiteral("MC")
+            || input == QStringLiteral("M+")
+            || input == QStringLiteral("M-")
+            || input == QStringLiteral("MR")) {
+        inputMemory(input);
+        return m_displayText;
+    }
+
     if (m_hasError) {
         if (input == QStringLiteral("Backspace")) {
             clear();
@@ -43,6 +51,8 @@ QString CalculatorEngine::process(const QString &input)
         inputEquals();
     } else if (input == QStringLiteral("Backspace")) {
         inputBackspace();
+    } else if (input == QStringLiteral("%")) {
+        inputPercent();
     }
 
     return m_displayText;
@@ -72,9 +82,11 @@ void CalculatorEngine::clear()
 
     m_accumulator = 0.0;
     m_lastOperand = 0.0;
+    m_memoryValue = 0.0;
     m_startNewOperand = true;
     m_justEvaluated = false;
     m_hasError = false;
+    m_memorySet = false;
 }
 
 bool CalculatorEngine::isOperator(const QString &input)
@@ -256,6 +268,50 @@ void CalculatorEngine::inputBackspace()
         m_displayText = QStringLiteral("0");
     }
 
+    updateTypingExpression();
+}
+
+void CalculatorEngine::inputMemory(const QString &input)
+{
+    if (input == QStringLiteral("MC")) {
+        m_memoryValue = 0.0;
+        m_memorySet = false;
+        return;
+    }
+
+    if (input == QStringLiteral("M+")) {
+        m_memoryValue += currentValue();
+        m_memorySet = true;
+        return;
+    }
+
+    if (input == QStringLiteral("M-")) {
+        m_memoryValue -= currentValue();
+        m_memorySet = true;
+        return;
+    }
+
+    if (input == QStringLiteral("MR")) {
+        m_displayText = formatNumber(m_memorySet ? m_memoryValue : 0.0);
+        m_startNewOperand = false;
+        m_justEvaluated = false;
+        updateTypingExpression();
+    }
+}
+
+void CalculatorEngine::inputPercent()
+{
+    const double value = currentValue();
+
+    if (m_pendingOperator == QStringLiteral("+")
+            || m_pendingOperator == QStringLiteral("-")) {
+        m_displayText = formatNumber(m_accumulator * value / 100.0);
+    } else {
+        m_displayText = formatNumber(value / 100.0);
+    }
+
+    m_startNewOperand = false;
+    m_justEvaluated = false;
     updateTypingExpression();
 }
 

@@ -24,6 +24,8 @@ private:
     void inputOperator(const QString &op);
     void inputEquals();
     void inputBackspace();
+    void inputMemory(const QString &input);
+    void inputPercent();
 
     bool applyPendingOperation(double rightOperand);
     bool calculate(const QString &op, double leftOperand,
@@ -44,9 +46,11 @@ private:
 
     double m_accumulator;
     double m_lastOperand;
+    double m_memoryValue;
     bool m_startNewOperand; // Next digit starts a fresh operand.
     bool m_justEvaluated;   // Enables repeated equals and result continuation.
     bool m_hasError;        // Blocks invalid operations until clear/new input.
+    bool m_memorySet;
 };
 
 #endif // CALCULATORENGINE_H
